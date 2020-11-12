@@ -17,6 +17,10 @@ const MovieCard = props => {
       .delete(`http://localhost:5000/api/movies/${id}`)
       .then(res => {
         console.log(res)
+        const newMovieList = props.movieList.filter(movie => movie.id !== id)
+
+        props.setMovieList(newMovieList)
+
       })
       .catch(err => {
         console.log(err)
